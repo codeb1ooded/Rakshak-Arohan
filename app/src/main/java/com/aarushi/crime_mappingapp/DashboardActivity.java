@@ -1,5 +1,7 @@
-package com.example.admin.crimemap;
+package com.aarushi.crime_mappingapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,9 +14,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Button btn_reportFiling,btn_safestRoute,btn_crimeNeighbourhood,btn_trackCrime;
+    final Context context=this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +41,28 @@ public class DashboardActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+        drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+        btn_reportFiling=(Button)findViewById(R.id.btn_reportFiling);
+        btn_safestRoute=(Button)findViewById(R.id.btn_safestRoute);
+        btn_crimeNeighbourhood=(Button)findViewById(R.id.btn_crimeNeighbourhood);
+        btn_trackCrime=(Button)findViewById(R.id.btn_trackCrime);
+
+        btn_crimeNeighbourhood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(DashboardActivity.this,NeighbourhoodCrime.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 
     @Override

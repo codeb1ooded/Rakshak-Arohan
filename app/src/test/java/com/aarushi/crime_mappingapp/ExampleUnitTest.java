@@ -1,4 +1,4 @@
-package com.example.admin.crimemap;
+package com.aarushi.crime_mappingapp;
 
 import org.junit.Test;
 

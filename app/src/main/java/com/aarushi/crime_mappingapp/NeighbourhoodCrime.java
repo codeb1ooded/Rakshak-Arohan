@@ -80,15 +80,11 @@ public class NeighbourhoodCrime extends FragmentActivity implements OnMapReadyCa
 
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://crime-mapping.herokuapp.com/api")
+                    .baseUrl("https://crime-mapping.herokuapp.com/api/")
                     .addConverterFactory(
                             GsonConverterFactory.create()
                     )
                     .build();
-
-
-
-
             NeighbourhoodCrimeAPI neighbourhoodCrimeAPI=retrofit.create(NeighbourhoodCrimeAPI.class);
             neighbourhoodCrimeAPI.getCrimeDetails(mLatitude+"",mLongitude+"").enqueue(new Callback<ArrayList<CrimeLocation>>() {
                 @Override

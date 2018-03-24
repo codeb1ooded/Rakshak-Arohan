@@ -61,6 +61,13 @@ public class DashboardActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+        btn_reportFiling.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i=new Intent(DashboardActivity.this,ReportFileActivity.class);
+                startActivity(i);
+            }
+        });
 
 
     }

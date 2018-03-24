@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.aarushi.crime_mappingapp.ReportFileActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Enter Details:"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textColor="#212121"
+        android:textSize="20dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/name1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Name"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Contact No."
+                android:inputType="number"/>
+            <EditText
+                android:id="@+id/aadhaar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Aadhaar Number"
+                android:inputType="number"/>
+            <EditText
+                android:id="@+id/complaintTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Complaint Time"
+                android:inputType="time"/>
+            <EditText
+                android:id="@+id/your_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Your Location"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/crimeType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Type of Crime"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/dateCrime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Date of Crime"
+                android:inputType="date"/>
+            <EditText
+                android:id="@+id/timeCrime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Time of Crime"
+                android:inputType="time"/>
+            <EditText
+                android:id="@+id/describeCrime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Description of Crime"
+                android:inputType="text"/>
+            <EditText
+                android:id="@+id/latCrime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Latitude"
+                android:inputType="numberDecimal"/>
+            <EditText
+                android:id="@+id/longCrime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Longitude"
+                android:inputType="numberDecimal"/>
+            <EditText
+                android:id="@+id/status_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Status"
+                android:inputType="text"/>
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="SUBMIT"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

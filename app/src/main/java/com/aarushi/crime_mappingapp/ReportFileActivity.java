@@ -9,7 +9,7 @@ public class ReportFileActivity extends AppCompatActivity {
     private EditText _complaintby, _phone, _fir_location, _complaint_time, _aadhaar, _crime_type, _crime_description, _crime_date, _crime_time, _lat_crime, _long_crime, _status;
     private Button _submit;
 
-    
+
 
 
     @Override

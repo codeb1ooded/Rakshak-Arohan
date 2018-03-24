@@ -85,10 +85,6 @@ public class NeighbourhoodCrime extends FragmentActivity implements OnMapReadyCa
                             GsonConverterFactory.create()
                     )
                     .build();
-
-
-
-
             NeighbourhoodCrimeAPI neighbourhoodCrimeAPI=retrofit.create(NeighbourhoodCrimeAPI.class);
             neighbourhoodCrimeAPI.getCrimeDetails(mLatitude+"",mLongitude+"").enqueue(new Callback<ArrayList<CrimeLocation>>() {
                 @Override

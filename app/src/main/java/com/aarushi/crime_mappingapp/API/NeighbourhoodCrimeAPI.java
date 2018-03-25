@@ -14,6 +14,6 @@ import retrofit2.http.Query;
  */
 
 public interface NeighbourhoodCrimeAPI {
-    @GET("/neighbourhood")
+    @GET("neighbourhood")
     Call<ArrayList<CrimeLocation>> getCrimeDetails(@Query("latitude") String latitude, @Query("longitude") String longitude);
 }

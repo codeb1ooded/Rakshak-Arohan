@@ -32,34 +32,20 @@
                 android:inputType="text"/>
 
             <EditText
-                android:id="@+id/phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:hint="Contact No."
-                android:inputType="number"/>
-            <EditText
                 android:id="@+id/aadhaar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:hint="Aadhaar Number"
                 android:inputType="number"/>
-            <EditText
-                android:id="@+id/complaintTime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:hint="Complaint Time"
-                android:inputType="time"/>
-            <EditText
-                android:id="@+id/your_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:hint="Your Location"
-                android:inputType="text"/>
 
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Contact No."
+                android:inputType="number"/>
             <EditText
                 android:id="@+id/crimeType"
                 android:layout_width="match_parent"
@@ -68,27 +54,6 @@
                 android:hint="Type of Crime"
                 android:inputType="text"/>
 
-            <EditText
-                android:id="@+id/dateCrime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:hint="Date of Crime"
-                android:inputType="date"/>
-            <EditText
-                android:id="@+id/timeCrime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:hint="Time of Crime"
-                android:inputType="time"/>
-            <EditText
-                android:id="@+id/describeCrime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:hint="Description of Crime"
-                android:inputType="text"/>
             <EditText
                 android:id="@+id/latCrime"
                 android:layout_width="match_parent"
@@ -104,12 +69,57 @@
                 android:hint="Longitude"
                 android:inputType="numberDecimal"/>
             <EditText
-                android:id="@+id/status_"
+                android:id="@+id/describeCrime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Description of Crime"
+                android:inputType="text"/>
+            <EditText
+                android:id="@+id/dateCrime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Date of Crime"
+                android:inputType="date"/>
+            <EditText
+                android:id="@+id/timeCrime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Time of Crime"
+                android:inputType="time"/>
+
+            <EditText
+                android:id="@+id/complaintTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Complaint Time"
+                android:inputType="time"/>
+
+            <EditText
+                android:id="@+id/complaintBy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Complaint By"
+                android:inputType="text"/>
+            <EditText
+                android:id="@+id/firLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="FIR Location"
+                android:inputType="text"/>
+            <EditText
+                android:id="@+id/status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:hint="Status"
                 android:inputType="text"/>
+
             <Button
                 android:id="@+id/btn_submit"
                 android:layout_width="match_parent"

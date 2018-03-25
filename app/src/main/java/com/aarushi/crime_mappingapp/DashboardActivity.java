@@ -15,11 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    Button btn_reportFiling,btn_safestRoute,btn_crimeNeighbourhood,btn_trackCrime;
+    ImageView btn_reportFiling,btn_safestRoute,btn_crimeNeighbourhood,btn_trackCrime;
     final Context context=this;
 
     @Override
@@ -49,10 +50,10 @@ public class DashboardActivity extends AppCompatActivity
 
 
 
-        btn_reportFiling=(Button)findViewById(R.id.btn_reportFiling);
-        btn_safestRoute=(Button)findViewById(R.id.btn_safestRoute);
-        btn_crimeNeighbourhood=(Button)findViewById(R.id.btn_crimeNeighbourhood);
-        btn_trackCrime=(Button)findViewById(R.id.btn_trackCrime);
+        btn_reportFiling=(ImageView) findViewById(R.id.btn_reportFiling);
+        btn_safestRoute=(ImageView) findViewById(R.id.btn_safestRoute);
+        btn_crimeNeighbourhood=(ImageView) findViewById(R.id.btn_crimeNeighbourhood);
+        btn_trackCrime=(ImageView) findViewById(R.id.btn_trackCrime);
 
         btn_crimeNeighbourhood.setOnClickListener(new View.OnClickListener() {
             @Override

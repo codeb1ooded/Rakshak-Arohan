@@ -1,20 +1,13 @@
 package com.aarushi.crime_mappingapp;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.aarushi.crime_mappingapp.API.NeighbourhoodCrimeAPI;
-import com.aarushi.crime_mappingapp.Models.CrimeLocation;
+import com.aarushi.crime_mappingapp.Models.NeighborReport;
+import com.aarushi.crime_mappingapp.Models.neghbourhood;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,7 +15,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -86,21 +79,44 @@ public class NeighbourhoodCrime extends FragmentActivity implements OnMapReadyCa
                     )
                     .build();
             NeighbourhoodCrimeAPI neighbourhoodCrimeAPI=retrofit.create(NeighbourhoodCrimeAPI.class);
-            neighbourhoodCrimeAPI.getCrimeDetails(mLatitude+"",mLongitude+"").enqueue(new Callback<ArrayList<CrimeLocation>>() {
+            neighbourhoodCrimeAPI.getNeighbourCrimes(mLatitude+"",mLongitude+"").enqueue(new Callback<neghbourhood>() {
                 @Override
-                public void onResponse(Call<ArrayList<CrimeLocation>> call, Response<ArrayList<CrimeLocation>> response) {
-                    // Log.d(TAG, "onResponse: ");
+                public void onResponse(Call<neghbourhood> call, Response<neghbourhood> response) {
+                    Log.d("Retro","Success "+call.request().url());
+                    Log.d("Retro","Body "+response.body());
+                    Log.d("Retro","Is successfull "+response.isSuccessful());
+                    Log.d("Retro","Message "+response.message());
+                    Log.d("Retro","Code "+response.code());
+                    Log.d("Retro","Body "+response.errorBody());
+                    List<NeighborReport> neighbours= response.body().getNeighbours();
 
+                    Log.d("Retro","Size "+neighbours.size());
+                    for(int i=0;i<neighbours.size();i++){
+                        NeighborReport neighborReport=neighbours.get(i);
+                        LatLng crime = new LatLng(Double.parseDouble(neighborReport.getLatitude()),
+                                Double.parseDouble(neighborReport.getLongitude()));
+                        MarkerOptions options = new MarkerOptions()
+                                .title("My Position")
+                                .position(crime);
+                        mMap.addMarker(options);
+
+                    }
 
 
                 }
 
                 @Override
-                public void onFailure(Call<ArrayList<CrimeLocation>> call, Throwable t) {
+                public void onFailure(Call<neghbourhood> call , Throwable t) {
 
+                    Log.d("Retro","Failure"+call.request().url());
+                    Log.d("Retro","Message"+t.getMessage());
+                    Log.d("Retro","To String"+t.toString());
+                    Log.d("Retro","Localized message"+t.getLocalizedMessage());
                 }
-
             });
+
+
+
         }else{
             mGPSTracker.showSettingsAlert();
         }

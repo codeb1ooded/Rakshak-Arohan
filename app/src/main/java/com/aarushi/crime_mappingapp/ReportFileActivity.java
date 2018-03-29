@@ -22,10 +22,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ReportFileActivity extends AppCompatActivity {
     EditText _name,_aadharcard,_phone,_crimetype,_latitude,_longitude,_crime_description,_date_crime,_time_crime,_complaint_time,
-    _complaint_by,_fir_location,_status;
+    _complaint_date,_complaint_by,_location,_fir_location,_status;
     Button btn_submit;
     String name,aadharcard,phone,crimetype,latitude,longitude,crime_description,date_crime,time_crime,complaint_time,
-    complaint_by,fir_location,status;
+    complaint_date,complaint_by,location,fir_location,status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +40,8 @@ public class ReportFileActivity extends AppCompatActivity {
         _date_crime=(EditText)findViewById(R.id.dateCrime);
         _time_crime=(EditText)findViewById(R.id.timeCrime);
         _complaint_time=(EditText)findViewById(R.id.complaintTime);
+        _complaint_date=(EditText)findViewById(R.id.complaintDate);
+        _location=(EditText)findViewById(R.id.location);
         _complaint_by=(EditText)findViewById(R.id.complaintBy);
         _fir_location=(EditText)findViewById(R.id.firLocation);
         _status=(EditText)findViewById(R.id.status);
@@ -58,6 +60,8 @@ public class ReportFileActivity extends AppCompatActivity {
                 date_crime=_date_crime.getText().toString();
                 time_crime=_time_crime.getText().toString();
                 complaint_time=_complaint_time.getText().toString();
+                complaint_date=_complaint_date.getText().toString();
+                location=_location.getText().toString();
                 complaint_by=_complaint_by.getText().toString();
                 fir_location=_fir_location.getText().toString();
                 status=_status.getText().toString();
@@ -92,7 +96,9 @@ public class ReportFileActivity extends AppCompatActivity {
                         crime_description,
                         date_crime,
                         time_crime,
-                        complaint_time
+                        complaint_time,
+                        complaint_date,
+                        location
 
                        ).enqueue(new Callback<ResponseBody>() {
 

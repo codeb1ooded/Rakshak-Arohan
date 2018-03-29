@@ -22,11 +22,10 @@ public interface ReportFilingAPI {
                                   @Query("latitude") String latitude,
                                   @Query("longitude") String longitude,
                                   @Query("crime_description") String crime_description,
-
                                   @Query("date_crime") String date_crime,
                                   @Query("time_crime") String time_crime,
-
-                                  @Query("complaint_time") String complaint_time
-
+                                  @Query("complaint_time") String complaint_time,
+                                  @Query("complaint_date") String complaint_date,
+                                  @Query("location") String location
                                   );
 }

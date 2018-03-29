@@ -52,7 +52,8 @@
         <activity
             android:name=".NeighbourhoodCrime"
             android:label="@string/title_activity_neighbourhood_crime" />
-        <activity android:name=".ReportFileActivity"></activity>
+        <activity android:name=".ReportFileActivity" />
+        <activity android:name=".TrackCrimeActivity"></activity>
     </application>
 
 </manifest>

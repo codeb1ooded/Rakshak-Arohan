@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CrimeMap.iml" filepath="$PROJECT_DIR$/CrimeMap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CrimeMappingApp.iml" filepath="$PROJECT_DIR$/CrimeMappingApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../../Admin/Desktop/_crime_mapping/CrimeMap/CrimeMappingApp.iml" filepath="$PROJECT_DIR$/../../../Admin/Desktop/_crime_mapping/CrimeMap/CrimeMappingApp.iml" />
+      <module fileurl="file://C:\Users\Admin\Admin\Desktop\_crime_mapping\CrimeMap\CrimeMappingApp.iml" filepath="C:\Users\Admin\Admin\Desktop\_crime_mapping\CrimeMap\CrimeMappingApp.iml" />
+      <module fileurl="file://C:\Users\Admin\Desktop\_crime_mapping\CrimeMap\CrimeMappingApp.iml" filepath="C:\Users\Admin\Desktop\_crime_mapping\CrimeMap\CrimeMappingApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

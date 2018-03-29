@@ -36,6 +36,7 @@ public class SignupActivity extends AppCompatActivity {
         userId1=(EditText)findViewById(R.id.userId1);
         password1=(EditText)findViewById(R.id.password1);
         confirmPassword=(EditText)findViewById(R.id.confirmpassword);
+        phoneno=(EditText)findViewById(R.id.phone_no);
         signup2=(Button)findViewById(R.id.signup2);
         signup2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +44,7 @@ public class SignupActivity extends AppCompatActivity {
                 String mail=userId1.getText().toString();
                 String password=password1.getText().toString();
                 String confirm=confirmPassword.getText().toString();
+                String phno=phoneno.getText().toString();
 
 //                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
 //                SharedPreferences.Editor editor = sharedPref.edit();
@@ -50,7 +52,7 @@ public class SignupActivity extends AppCompatActivity {
 //                editor.putString("Email", mail);
 //                editor.putString("Password", password);
 //                editor.apply();
-                createAccount(mail,password);
+                createAccount(mail,password,phno);
 
                 Intent i=new Intent(SignupActivity.this,DashboardActivity.class);
                 startActivity(i);
@@ -58,7 +60,7 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
-    private void createAccount(String email, String password){
+    private void createAccount(String email, final String password, final String phno){
 
 
 
@@ -73,8 +75,8 @@ public class SignupActivity extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
                         SharedPreferences.Editor editor = sharedPref.edit();
-
                         editor.putBoolean("Registered", true);
+                        editor.putString("Number", phno);
                         //editor.putString("Email", mail);
                         //editor.putString("Password", password);
                         editor.apply();

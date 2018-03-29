@@ -69,6 +69,7 @@ public class NeighbourhoodCrime extends FragmentActivity implements OnMapReadyCa
                     .title("My Position")
                     .position(latLng);
             googleMap.addMarker(options);
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,12.0f));
 
 
 

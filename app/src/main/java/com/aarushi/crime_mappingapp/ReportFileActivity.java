@@ -83,16 +83,18 @@ public class ReportFileActivity extends AppCompatActivity {
 
 
                 ReportFilingAPI reportFilingAPI=retrofit.create(ReportFilingAPI.class);
-                reportfilingAPI.fileReport(crimetype,
+                reportfilingAPI.fileReport(name,
+                        aadharcard,
+                        phone,
+                        crimetype,
                         latitude,
-                        longitude,crime_description,
-                        complaint_by,
+                        longitude,
+                        crime_description,
                         date_crime,
                         time_crime,
-                        fir_location,
-                        complaint_time,
-                        phone,
-                        status).enqueue(new Callback<ResponseBody>() {
+                        complaint_time
+
+                       ).enqueue(new Callback<ResponseBody>() {
 
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

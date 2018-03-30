@@ -22,7 +22,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".login_module.LoginActivity"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignupActivity"
+            android:name=".login_module.SignupActivity"
             android:noHistory="true" />
         <activity
             android:name=".DashboardActivity"
@@ -52,7 +52,10 @@
         <activity
             android:name=".NeighbourhoodCrime"
             android:label="@string/title_activity_neighbourhood_crime" />
-        <activity android:name=".ReportFileActivity"></activity>
+        <activity android:name=".ReportFileActivity" />
+        <activity
+            android:name=".safest_route.SafestRouteActivity"
+            android:label="@string/title_activity_safest_route"></activity>
     </application>
 
 </manifest>

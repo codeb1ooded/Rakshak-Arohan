@@ -33,7 +33,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NeighbourhoodCrime extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    GPSTracker mGPSTracker;
+    private GPSTracker mGPSTracker;
 
     private double mLatitude, mLongitude;
 

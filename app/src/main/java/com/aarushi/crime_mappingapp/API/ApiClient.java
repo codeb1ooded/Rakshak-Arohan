@@ -22,7 +22,7 @@ public class ApiClient {
                     .create();
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://maps.googleapis.com/")
+                    .baseUrl("https://crime-mapping.herokuapp.com/")
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
 

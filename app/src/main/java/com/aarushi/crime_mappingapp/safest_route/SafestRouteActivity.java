@@ -65,29 +65,43 @@ public class SafestRouteActivity extends FragmentActivity implements OnMapReadyC
             mLatitude = mGPSTracker.getLatitude();
             mLongitude = mGPSTracker.getLongitude();
 
+            if(mLatitude == 0){
+                mLatitude = 22.7196;
+                mLongitude = 75.8577;
+            }
+
             LatLng latLng = new LatLng(mLatitude, mLongitude);
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            MarkerOptions options = new MarkerOptions()
-                    .title("My Position")
-                    .position(latLng);
-            googleMap.addMarker(options);
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,8.0f));
             getDirection(mLatitude + "," + mLongitude, "faridabad");
-
-
         }else{
             mGPSTracker.showSettingsAlert();
         }
     }
 
     public void getDirection(String origin, String destination){
-        Call<Path> getDirections = ApiClient.getInterface().getShortestPath(origin, destination, Constants.API_KEY, true);
+        Call<Path> getDirections = ApiClient.getInterface().getShortestPath(origin, destination);
         getDirections.enqueue(new Callback<Path>() {
             @Override
             public void onResponse(Call<Path> call, Response<Path> response) {
                 if (response.isSuccessful()) {
-                    createRoute(response.body().getRoutes().get(1));
-                } else {
-
+                    ArrayList<Route> routes = response.body().getRoutes();
+                    if (routes.size() == 0){
+                        Toast.makeText(SafestRouteActivity.this, "No route found!", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Route max_safe_route = routes.get(0);
+                        double max_score = 0;
+                        for (Route r : routes) {
+                            if (max_score < r.getScore()) {
+                                max_safe_route = r;
+                                max_score = r.getScore();
+                            }
+                        }
+                        createRoute(max_safe_route);
+                    }
+                }
+                else{
+                    Toast.makeText(SafestRouteActivity.this, "Try Again!", Toast.LENGTH_SHORT).show();
                 }
             }
 

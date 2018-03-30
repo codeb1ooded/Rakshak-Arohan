@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.aarushi.crime_mappingapp.safest_route.SafestRouteActivity;
+
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -66,6 +68,13 @@ public class DashboardActivity extends AppCompatActivity
             @Override
             public void onClick(View v){
                 Intent i=new Intent(DashboardActivity.this,ReportFileActivity.class);
+                startActivity(i);
+            }
+        });
+        btn_safestRoute.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i=new Intent(DashboardActivity.this, SafestRouteActivity.class);
                 startActivity(i);
             }
         });

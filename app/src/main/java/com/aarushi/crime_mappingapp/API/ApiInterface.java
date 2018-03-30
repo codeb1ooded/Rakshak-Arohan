@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 
 public interface ApiInterface  {
 
-    @GET("maps/api/directions/json")
-    Call<Path> getShortestPath(@Query("origin") String origin, @Query("destination") String destination, @Query("key") String apiKey, @Query("alternatives") boolean alternatives);
+    @GET("/api/safest_route/")
+    Call<Path> getShortestPath(@Query("origin") String origin, @Query("destination") String destination);
 
 }

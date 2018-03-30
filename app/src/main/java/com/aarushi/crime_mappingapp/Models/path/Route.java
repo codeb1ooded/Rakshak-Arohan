@@ -12,6 +12,7 @@ public class Route {
     ArrayList<Leg> legs;
     Polyline overview_polyline;
     String summary;
+    double score;
     //ArrayList<> warnings;
     //ArrayList<> waypoint_order;
 
@@ -21,5 +22,9 @@ public class Route {
 
     public ArrayList<Leg> getLegs() {
         return legs;
+    }
+
+    public double getScore() {
+        return score;
     }
 }

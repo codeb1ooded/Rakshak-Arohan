@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.aarushi.crime_mappingapp.ComplaintActivity">
+
     <EditText
         android:id="@+id/et_location"
         android:layout_width="match_parent"
@@ -29,12 +30,45 @@
         android:layout_margin="3dp"
         android:hint="Crime Description"
         android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/crimeDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Crime Date"
+        android:inputType="date"/>
+
+    <EditText
+        android:id="@+id/crimeTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Crime Time"
+        android:inputType="time"/>
+
+    <EditText
+        android:id="@+id/isVerified"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Is Crime Verified?"
+        android:inputType="text"/>
+
+
     <Button
         android:id="@+id/btn_complaint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:text="Submit"/>
+
+    <Button
+        android:id="@+id/btn_viewAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="View All"/>
 
 
 </LinearLayout>

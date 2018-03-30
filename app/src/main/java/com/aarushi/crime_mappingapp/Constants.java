@@ -7,5 +7,6 @@ package com.aarushi.crime_mappingapp;
 public interface Constants {
 
     String API_KEY = "AIzaSyBsJ5VVj3W_BDwe2fsbSTceTOTovh2CsBE";
+    String MEDIA_TYPE_JPG = ".jpg";
 
 }

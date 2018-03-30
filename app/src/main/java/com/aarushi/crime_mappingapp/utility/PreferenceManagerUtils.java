@@ -22,4 +22,13 @@ public class PreferenceManagerUtils {
         mEditor = mPref.edit();
     }
 
+    public void storeImagePath(String path){
+        mEditor.putString("path", path);
+        mEditor.apply();
+    }
+
+    public String getImagePath() {
+        return mPref.getString("path",null);
+    }
+
 }

@@ -10,6 +10,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
@@ -20,16 +22,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login_module.PoliceLoginActivity">
+        <activity android:name=".login_module.PoliceLoginActivity"></activity>
+
         <activity
             android:name=".login_module.LoginActivity"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".login_module.SignupActivity"
             android:noHistory="true" />
@@ -57,13 +60,20 @@
         <activity
             android:name=".safest_route.SafestRouteActivity"
             android:label="@string/title_activity_safest_route" />
-        <activity android:name=".TrackCrimeActivity" />
+
         <activity android:name=".ComplaintActivity"></activity>
+        <activity android:name=".TrackCrimeActivity"></activity>
+        <activity android:name=".images.AttachImage"></activity>
+
         <receiver android:name=".upload.ConnectionChangedReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name=".upload.AutoUploadService"
+            android:enabled="true" />
     </application>
 
 </manifest>

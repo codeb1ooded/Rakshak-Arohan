@@ -21,6 +21,7 @@ public class ApiClient {
                     .excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC)
                     .create();
 
+            // http://192.168.1.101:8000/
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("https://crime-mapping.herokuapp.com/")
                     .addConverterFactory(GsonConverterFactory.create(gson))

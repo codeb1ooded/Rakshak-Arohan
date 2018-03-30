@@ -53,9 +53,12 @@
             android:name=".NeighbourhoodCrime"
             android:label="@string/title_activity_neighbourhood_crime" />
         <activity android:name=".ReportFileActivity" />
+
         <activity
             android:name=".safest_route.SafestRouteActivity"
             android:label="@string/title_activity_safest_route"></activity>
+
+        <activity android:name=".TrackCrimeActivity"></activity>
     </application>
 
 </manifest>

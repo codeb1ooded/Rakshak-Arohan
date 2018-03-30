@@ -70,6 +70,15 @@ public class DashboardActivity extends AppCompatActivity
             }
         });
 
+        btn_trackCrime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(DashboardActivity.this,TrackCrimeActivity.class);
+                startActivity(i);
+            }
+        });
+
 
     }
 

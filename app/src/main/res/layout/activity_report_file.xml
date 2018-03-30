@@ -98,12 +98,33 @@
                 android:hint="Complaint Time"
                 android:inputType="time"/>
 
+
+
+
+            <EditText
+                android:id="@+id/complaintDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Complaint Date"
+                android:inputType="date"/>
+
+
+
             <EditText
                 android:id="@+id/complaintBy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:hint="Complaint By"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Location"
                 android:inputType="text"/>
             <EditText
                 android:id="@+id/firLocation"

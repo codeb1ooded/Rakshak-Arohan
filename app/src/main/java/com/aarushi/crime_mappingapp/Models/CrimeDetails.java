@@ -16,8 +16,26 @@ public class CrimeDetails {
     String latitude;
     String date_crime;
     String complaint_by;
+    String name;
+    String aadharcard;
 
-    public CrimeDetails(String status, String complaint_time, String phone, String crime_description, String crime_type, String longitude, String time_crime, String fir_location, String latitude, String date_crime, String complaint_by) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAadharcard() {
+        return aadharcard;
+    }
+
+    public void setAadharcard(String aadharcard) {
+        this.aadharcard = aadharcard;
+    }
+
+    public CrimeDetails(String status, String complaint_time, String phone, String crime_description, String crime_type, String longitude, String time_crime, String fir_location, String latitude, String date_crime, String complaint_by, String name, String aadharcard) {
         this.status = status;
         this.complaint_time = complaint_time;
         this.phone = phone;
@@ -29,6 +47,9 @@ public class CrimeDetails {
         this.latitude = latitude;
         this.date_crime = date_crime;
         this.complaint_by = complaint_by;
+        this.name=name;
+        this.aadharcard=aadharcard;
+
     }
 
     public String getStatus() {

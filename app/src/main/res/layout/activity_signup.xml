@@ -6,97 +6,117 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="center">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email Address"
-            android:id="@+id/textView1"
-            android:layout_marginTop="49dp"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+
+            android:scaleType="fitXY"
+            android:src="@drawable/wcd_logo_png" />
+    </LinearLayout>
+
+
+
+
+
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:inputType="textEmailAddress"
             android:ems="10"
             android:id="@+id/userId1"
-            android:layout_below="@+id/textView1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="-5dp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:alpha="0.3"
+            android:background="@color/cardview_shadow_start_color"
+            android:hint="Email Address"
+            android:padding="5dp"
+            android:textColor="#212121"
+            android:textColorHint="#455a64"
+            android:textSize="25dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Password"
-            android:layout_marginTop="32dp"
-            android:id="@+id/textView"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            android:layout_below="@+id/userId1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/password1"
-            android:layout_below="@+id/textView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="5dp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:alpha="0.3"
+            android:background="@color/cardview_shadow_start_color"
+            android:hint="Password"
+            android:padding="5dp"
+            android:textColor="#212121"
+            android:textColorHint="#455a64"
+            android:textSize="25dp"
+             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Confirm Password"
-            android:id="@+id/textView2"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+
 
         <EditText
-            android:layout_width="373dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/confirmpassword"
-            android:layout_below="@+id/textView2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:alpha="0.3"
+            android:background="@color/cardview_shadow_start_color"
+            android:hint="Confirm Password"
+            android:padding="5dp"
+            android:textColor="#212121"
+            android:textColorHint="#455a64"
+            android:textSize="25dp"
+
+           />
+    <EditText
+        android:id="@+id/phone_no"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:alpha="0.3"
+        android:background="@color/cardview_shadow_start_color"
+        android:ems="10"
+        android:hint="Contact Number"
+        android:inputType="number"
+        android:padding="5dp"
+        android:textColor="#212121"
+        android:textColorHint="#455a64"
+        android:textSize="25dp"
+
+        />
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:text="Sign Up"
             android:id="@+id/signup2"
-            android:background="#d72848"
-            android:textColor="#ffffff"
-            android:layout_gravity="center_horizontal"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="41dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
 
-    </RelativeLayout>
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimary"
+            android:textColor="#ffffff"
+            android:layout_margin="10dp"
+             />
+
+
 
 
 </LinearLayout>

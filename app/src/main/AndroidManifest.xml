@@ -59,6 +59,12 @@
             android:label="@string/title_activity_safest_route"></activity>
 
         <activity android:name=".TrackCrimeActivity"></activity>
+
+        <receiver android:name=".upload.ConnectionChangedReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

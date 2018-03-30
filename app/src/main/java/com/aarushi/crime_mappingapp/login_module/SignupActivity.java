@@ -49,7 +49,7 @@ public class SignupActivity extends AppCompatActivity {
                 String confirm=confirmPassword.getText().toString();
                 String phno=phoneno.getText().toString();
 
-//                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+//                SharedPreferences sharedPref = PreferenceManagerUtils.getDefaultSharedPreferences(context);
 //                SharedPreferences.Editor editor = sharedPref.edit();
 //                editor.putBoolean("Registered", true);
 //                editor.putString("Email", mail);

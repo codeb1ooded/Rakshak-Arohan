@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.aarushi.crime_mappingapp.ComplaintActivity">
+
+    <EditText
+        android:id="@+id/et_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Location"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/crimeType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Crime Type"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/crimeDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Crime Description"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/crimeDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Crime Date"
+        android:inputType="date"/>
+
+    <EditText
+        android:id="@+id/crimeTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Crime Time"
+        android:inputType="time"/>
+
+    <EditText
+        android:id="@+id/isVerified"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Is Crime Verified?"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/isUploaded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:hint="Is Image Uploadedd?"
+        android:inputType="text"/>
+
+
+    <Button
+        android:id="@+id/btn_complaint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Submit"/>
+
+    <Button
+        android:id="@+id/btn_viewAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="View All"/>
+
+
+</LinearLayout>

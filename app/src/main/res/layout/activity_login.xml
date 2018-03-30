@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.aarushi.crime_mappingapp.login_module.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:scaleType="fitXY"
+            android:src="@drawable/wcd_logo_png" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:alpha="0.3"
+        android:background="@color/cardview_shadow_start_color"
+        android:ems="10"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:padding="5dp"
+        android:textColor="#212121"
+        android:textColorHint="#455a64"
+        android:textSize="25dp"
+
+        />
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/et_password"
+
+        android:hint="Password"
+        android:textColorHint="#455a64"
+        android:layout_gravity="center_horizontal"
+        android:padding="5dp"
+        android:background="@color/cardview_shadow_start_color"
+        android:alpha="0.3"
+        android:textColor="#212121"
+        android:layout_margin="20dp"
+        android:textSize="25dp"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp">
+        <Button
+            android:id="@+id/bt_login"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimary"
+            android:text="Log In"
+            android:textColor="#ffffff"
+
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Sign Up"
+            android:id="@+id/bt_signup"
+            android:background="@color/colorPrimary"
+            android:textColor="#ffffff"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"
+            />
+
+</LinearLayout>
+
+
+
+
+</LinearLayout>

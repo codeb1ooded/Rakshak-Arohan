@@ -21,15 +21,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".login_module.PoliceLoginActivity">
+        <activity
+            android:name=".login_module.LoginActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".login_module.LoginActivity"
-            android:noHistory="true"></activity>
         <activity
             android:name=".login_module.SignupActivity"
             android:noHistory="true" />
@@ -53,11 +53,17 @@
             android:name=".NeighbourhoodCrime"
             android:label="@string/title_activity_neighbourhood_crime" />
         <activity android:name=".ReportFileActivity" />
+
         <activity
             android:name=".safest_route.SafestRouteActivity"
             android:label="@string/title_activity_safest_route" />
         <activity android:name=".TrackCrimeActivity" />
         <activity android:name=".ComplaintActivity"></activity>
+        <receiver android:name=".upload.ConnectionChangedReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

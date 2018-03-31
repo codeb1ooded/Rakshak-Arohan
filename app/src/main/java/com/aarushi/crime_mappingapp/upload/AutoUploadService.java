@@ -73,6 +73,7 @@ public class AutoUploadService extends Service {
         startForeground(NOTIF_ID, getNotification(title, message).build());
 
         getUnuploadedComplaints();
+        getUnuploadedImages();
         String imagePath = (new PreferenceManagerUtils(AutoUploadService.this)).getImagePath();
 //        Log.i(TAG, imagePath);
         Log.i(TAG, "Upload start");
@@ -120,7 +121,7 @@ public class AutoUploadService extends Service {
         return null;
     }
 
-    private void uploadFile(String filepath) {
+    private void uploadFile(final int image_id, String filepath) {
 
         // https://github.com/iPaulPro/aFileChooser/blob/master/aFileChooser/src/com/ipaulpro/afilechooser/utils/FileUtils.java
         // use the FileUtils to get the actual file by uri
@@ -140,6 +141,7 @@ public class AutoUploadService extends Service {
         call.enqueue(new Callback<EmptyClass>() {
             @Override
             public void onResponse(Call<EmptyClass> call, Response<EmptyClass> response) {
+                dbHelper.updateImageToUploaded(image_id);
                 Log.d(TAG, "response of image upload");
             }
 
@@ -171,11 +173,6 @@ public class AutoUploadService extends Service {
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         return decodedByte;
     }
-
-    private void uploadNextComplaint(){
-
-    }
-
 
 
     public void getUnuploadedComplaints(){
@@ -213,6 +210,18 @@ public class AutoUploadService extends Service {
                     Toast.makeText(AutoUploadService.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
+        }
+        cursor.close();
+    }
+
+    public void getUnuploadedImages(){
+        String selectQuery = "SELECT  * FROM " + DatabaseHelper.TABLE_IMAGES + " WHERE " + DatabaseHelper.COL_IS_UPLOADED + "=\'false\'";
+        mDatabase = dbHelper.getWritableDatabase();
+        Cursor cursor = mDatabase.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            uploadFile(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COL_ID)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_IMAGE_PATH_NAME)));
         }
         cursor.close();
     }

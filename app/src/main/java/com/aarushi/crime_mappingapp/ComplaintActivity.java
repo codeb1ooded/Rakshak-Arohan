@@ -14,24 +14,28 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.aarushi.crime_mappingapp.DB.DatabaseHelper;
+import com.aarushi.crime_mappingapp.Models.ImageModel;
+import com.aarushi.crime_mappingapp.images.AttachImage;
 import com.aarushi.crime_mappingapp.upload.AutoUploadService;
 import com.aarushi.crime_mappingapp.utility.LocationUtils;
 import com.aarushi.crime_mappingapp.utility.PermissionViewModel;
 import com.aarushi.crime_mappingapp.utility.PreferenceManagerUtils;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class ComplaintActivity extends BaseActivity implements LocationUtils.LocationUtilListener {
 
     EditText et_location, crimeType, crimeDescription, crimeDate, crimeTime, isVerified;
-    Button btn_complaint;
+    Button btn_complaint, uploadImageButton;
     DatabaseHelper myDb;
 //    private GPSTracker mGPSTracker;
 //    private double mLatitude, mLongitude;
     private LocationUtils mLocationUtils;
     private PreferenceManagerUtils preferenceManagerUtils;
+    ArrayList<ImageModel> images;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +46,7 @@ public class ComplaintActivity extends BaseActivity implements LocationUtils.Loc
         if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mLocationUtils = new LocationUtils(this, this);
-
         myDb = new DatabaseHelper(this);
-//        mGPSTracker = new GPSTracker(this);
         preferenceManagerUtils = new PreferenceManagerUtils(ComplaintActivity.this);
 
         final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
@@ -52,11 +54,7 @@ public class ComplaintActivity extends BaseActivity implements LocationUtils.Loc
         final Date currentTime = Calendar.getInstance().getTime();
         final Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
-//        if (mGPSTracker.canGetLocation()) {
-//            mLatitude = mGPSTracker.getLatitude();
-//            mLongitude = mGPSTracker.getLongitude();
-//            Log.d("Database", mLatitude + " " + mLongitude);
-//        }
+
         et_location = (EditText) findViewById(R.id.et_location);
         crimeType = (EditText) findViewById(R.id.crimeType);
         crimeDescription = (EditText) findViewById(R.id.crimeDescription);
@@ -64,6 +62,7 @@ public class ComplaintActivity extends BaseActivity implements LocationUtils.Loc
         crimeTime = (EditText) findViewById(R.id.crimeTime);
         isVerified = (EditText) findViewById(R.id.isVerified);
         btn_complaint = (Button) findViewById(R.id.btn_complaint);
+        uploadImageButton = (Button) findViewById(R.id.btn_upload);
 
         btn_complaint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +70,7 @@ public class ComplaintActivity extends BaseActivity implements LocationUtils.Loc
                 Log.i("ComplaintActivity", crimeDate.getText().toString());
                 Log.i("ComplaintActivity", crimeTime.getText().toString());
                 Location location = getCurrentLocation();
-                boolean isInserted = myDb.insertData(
+                long id = myDb.insertData(
                         preferenceManagerUtils.getUsername(),
                         crimeType.getText().toString(),
                         location.getLatitude() + "",
@@ -83,7 +82,11 @@ public class ComplaintActivity extends BaseActivity implements LocationUtils.Loc
                         timeFormat.format(currentTime),
                         dateFormat.format(currentTime),
                         isVerified.getText().toString());
-                if(isInserted == true) {
+                for(ImageModel image: images){
+                    myDb.insertImageEntry((int) id, image.getPathName(), image.getTimestampDate(), image.getTimestampTime(),
+                            image.getLatitude(), image.getLongitude());
+                }
+                if(id != -1) {
                     cleanFields();
                     Toast.makeText(ComplaintActivity.this, getString(R.string.info_data_inserted), Toast.LENGTH_LONG).show();
                     Intent serviceIntent = new Intent(ComplaintActivity.this, AutoUploadService.class);
@@ -93,30 +96,13 @@ public class ComplaintActivity extends BaseActivity implements LocationUtils.Loc
                     Toast.makeText(ComplaintActivity.this, getString(R.string.info_data_not_inserted), Toast.LENGTH_LONG).show();
             }
         });
-//        btn_viewAll.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Cursor res = myDb.getAllData();
-//                        if (res.getCount() == 0) {
-//                            // show message
-//                            Log.d("Database", "Nothing found");
-//                            return;
-//                        }
-//
-//                        StringBuffer buffer = new StringBuffer();
-//                        while (res.moveToNext()) {
-//                            buffer.append("Id :" + res.getString(0) + "\n");
-//                            buffer.append("Name :" + res.getString(1) + "\n");
-//                            buffer.append("Surname :" + res.getString(2) + "\n");
-//                            buffer.append("Marks :" + res.getString(3) + "\n\n");
-//                        }
-//
-//                        // Show all data
-//                        Log.d("Database", buffer.toString());
-//                    }
-//                }
-//        );
+        uploadImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ComplaintActivity.this, AttachImage.class);
+                startActivityForResult(intent, AttachImage.INTENT_ATTACH_IMAGE);
+            }
+        });
     }
 
     @Override
@@ -171,6 +157,12 @@ public class ComplaintActivity extends BaseActivity implements LocationUtils.Loc
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == AttachImage.INTENT_ATTACH_IMAGE) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                images = (ArrayList<ImageModel>) data.getSerializableExtra("images");
+            }
+        }
         if (mLocationUtils != null) {
             mLocationUtils.onActivityResult(requestCode, resultCode, data);
         }

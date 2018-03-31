@@ -80,6 +80,17 @@
         android:inputType="text"/>
 
     <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Upload Images"
+        android:textColor="#ffffff"/>
+
+    <Button
         android:id="@+id/btn_complaint"
         android:layout_width="match_parent"
         android:layout_marginTop="30dp"

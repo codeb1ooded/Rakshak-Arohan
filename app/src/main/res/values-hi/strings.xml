@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">रक्षक आरोहण</string>
+    <string name="title_activity_complain_register">अपराध दर्ज करे</string>
 
     <string name="hint_location">स्थान</string>
     <string name="hint_crime_type">अपराध प्रकार</string>
@@ -12,6 +13,7 @@
     <string name="title.report_filling">रिपोर्ट करें</string>
     <string name="title.track_crime">TRACK CRIME</string>
     <string name="title.neighbourhood_crime">नजदीकी अपराध</string>
+    <string name="title.complain_register">अपराध दर्ज करे</string>
     <string name="title.safest_route">सुरक्षित मार्ग</string>
 
 </resources>

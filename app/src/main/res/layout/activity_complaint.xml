@@ -11,7 +11,11 @@
         android:id="@+id/et_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:padding="12dp"
         android:hint="@string/hint_location"
         android:inputType="text"/>
 
@@ -19,7 +23,11 @@
         android:id="@+id/crimeType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:padding="12dp"
         android:hint="@string/hint_crime_type"
         android:inputType="text"/>
 
@@ -27,7 +35,11 @@
         android:id="@+id/crimeDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:padding="12dp"
         android:hint="@string/hint_crime_description"
         android:inputType="text"/>
 
@@ -35,7 +47,11 @@
         android:id="@+id/crimeDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:padding="12dp"
         android:hint="@string/hint_crime_date"
         android:inputType="date"/>
 
@@ -43,7 +59,11 @@
         android:id="@+id/crimeTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:padding="12dp"
         android:hint="@string/hint_crime_time"
         android:inputType="time"/>
 
@@ -51,23 +71,24 @@
         android:id="@+id/isVerified"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:padding="12dp"
         android:hint="Is Crime Verified?"
         android:inputType="text"/>
 
-
     <Button
         android:id="@+id/btn_complaint"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="wrap_content"
-        android:text="@string/button_submit"/>
-
-    <Button
-        android:id="@+id/btn_viewAll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="View All"/>
+        android:background="@color/colorPrimary"
+        android:text="@string/button_submit"
+        android:textColor="#ffffff"/>
 
 
 </LinearLayout>

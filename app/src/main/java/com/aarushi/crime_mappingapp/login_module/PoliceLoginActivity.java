@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.aarushi.crime_mappingapp.BaseActivity;
 import com.aarushi.crime_mappingapp.DashboardActivity;
 import com.aarushi.crime_mappingapp.R;
 import com.aarushi.crime_mappingapp.utility.PreferenceManagerUtils;
@@ -20,7 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class PoliceLoginActivity extends AppCompatActivity {
+public class PoliceLoginActivity extends BaseActivity {
     EditText et_policeemail, et_policepassword;
     Button btn_policelogin;
     private FirebaseAuth mAuth;

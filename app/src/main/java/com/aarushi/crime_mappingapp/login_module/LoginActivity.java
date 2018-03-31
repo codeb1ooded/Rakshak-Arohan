@@ -1,15 +1,16 @@
 package com.aarushi.crime_mappingapp.login_module;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.aarushi.crime_mappingapp.BaseActivity;
 import com.aarushi.crime_mappingapp.DashboardActivity;
 import com.aarushi.crime_mappingapp.R;
 import com.aarushi.crime_mappingapp.utility.PreferenceManagerUtils;
@@ -20,12 +21,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     EditText et_email, et_password;
     Button bt_signup, bt_login;
     private FirebaseAuth mAuth;
     private PreferenceManagerUtils ssn;
+    private ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +66,12 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), R.string.info_valid_details, Toast.LENGTH_SHORT).show();
             return;
         }
-
+        showProgressDialog();
         mAuth.signInWithEmailAndPassword(et_email.getText().toString(), et_password.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        hideProgressDialog();
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithEmail:success");
@@ -107,4 +110,19 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    private void showProgressDialog() {
+        if (pd == null) {
+            pd = new ProgressDialog(this);
+            pd.setIndeterminate(true);
+            pd.setMessage("Please wait..");
+            pd.setCancelable(false);
+        }
+        if (!pd.isShowing()) pd.show();
+    }
+
+    private void hideProgressDialog() {
+        if (pd!=null && pd.isShowing()) {
+            pd.dismiss();
+        }
+    }
 }

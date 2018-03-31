@@ -1,36 +1,28 @@
 package com.aarushi.crime_mappingapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.CardView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.aarushi.crime_mappingapp.safest_route.SafestRouteActivity;
 
-public class DashboardActivity extends AppCompatActivity
+public class DashboardActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     CardView btn_reportFiling, btn_safestRoute, btn_crimeNeighbourhood, btn_trackCrime, btn_registerComplain;
     DrawerLayout drawer;
     Toolbar toolbar;
-    FloatingActionButton fab;
     NavigationView navigationView;
     LinearLayout layer1, layer2, layer3;
-    final Context context = this;
     private boolean isPublicUser = false;
 
     @Override
@@ -44,7 +36,6 @@ public class DashboardActivity extends AppCompatActivity
         }
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         btn_reportFiling = (CardView) findViewById(R.id.btn_reportFiling);
         btn_safestRoute = (CardView) findViewById(R.id.btn_safestRoute);
@@ -119,13 +110,6 @@ public class DashboardActivity extends AppCompatActivity
             }
         });
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -182,4 +166,5 @@ public class DashboardActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

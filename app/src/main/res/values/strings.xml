@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Rakshak Arohan</string>
     <string name="title_activity_dashboard">Home</string>
+    <string name="title_activity_complain_register">Complain Register</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -33,6 +34,10 @@
     <string name="hint_login">Login In</string>
     <string name="hint_signup">Sign Up</string>
 
+    <string name="msg_need_location">This feature require location. So please provide permission or enable location</string>
+    <string name="button_enable">Enable</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="location_permission_info_text">This feature require location. So please provide permission</string>
 
     <string name="info.valid_details">Please provide all details</string>
 

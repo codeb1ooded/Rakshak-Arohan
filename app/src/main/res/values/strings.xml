@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Rakshak Arohan</string>
-    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_activity_dashboard">Home</string>
+    <string name="title_activity_complain_register">Complain Register</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,4 +9,37 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_neighbourhood_crime">Map</string>
     <string name="title_activity_safest_route">Safest Route</string>
+
+    <string name="pref_locale">pref_locale</string>
+    <string name="pref_lang">hi</string>
+
+    <!--modules-->
+    <string name="title.report_filling">REPORT FILING</string>
+    <string name="title.track_crime">TRACK CRIME</string>
+    <string name="title.complain_register">COMPLAIN REGISTER</string>
+    <string name="title.neighbourhood_crime">NEIGHBOURHOOD CRIME</string>
+    <string name="title.safest_route">SAFEST ROUTE</string>
+
+    <!-- Complaint -->
+    <string name="hint_location">Location</string>
+    <string name="hint_crime_type">Crime Type</string>
+    <string name="hint_crime_description">Crime Description</string>
+    <string name="hint_crime_date">Crime Date</string>
+    <string name="hint_crime_time">Crime Time</string>
+    <string name="button_submit">Submit</string>
+
+    <!-- Login -->
+    <string name="hint_email_address">Email Address</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_login">Login In</string>
+    <string name="hint_signup">Sign Up</string>
+
+    <string name="msg_need_location">This feature require location. So please provide permission or enable location</string>
+    <string name="button_enable">Enable</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="location_permission_info_text">This feature require location. So please provide permission</string>
+
+    <string name="info.valid_details">Please provide all details</string>
+
 </resources>

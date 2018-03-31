@@ -1,81 +1,94 @@
 package com.aarushi.crime_mappingapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.aarushi.crime_mappingapp.safest_route.SafestRouteActivity;
 
-public class DashboardActivity extends AppCompatActivity
+public class DashboardActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ImageView btn_reportFiling,btn_safestRoute,btn_crimeNeighbourhood,btn_trackCrime;
-    final Context context=this;
+    CardView btn_reportFiling, btn_safestRoute, btn_crimeNeighbourhood, btn_trackCrime, btn_registerComplain;
+    DrawerLayout drawer;
+    Toolbar toolbar;
+    NavigationView navigationView;
+    LinearLayout layer1, layer2, layer3;
+    private boolean isPublicUser = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null && extras.containsKey("is_public_user")) {
+            isPublicUser = extras.getBoolean("is_public_user");
+        }
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        btn_reportFiling = (CardView) findViewById(R.id.btn_reportFiling);
+        btn_safestRoute = (CardView) findViewById(R.id.btn_safestRoute);
+        btn_crimeNeighbourhood = (CardView) findViewById(R.id.btn_crimeNeighbourhood);
+        btn_trackCrime = (CardView) findViewById(R.id.btn_trackCrime);
+        btn_registerComplain = (CardView) findViewById(R.id.btn_complainRegister);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        layer1 = (LinearLayout) findViewById(R.id.layer1);
+        layer2 = (LinearLayout) findViewById(R.id.layer2);
+        layer3 = (LinearLayout) findViewById(R.id.layer3);
+
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
 
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        if (!isPublicUser) {
+            btn_reportFiling.setVisibility(View.GONE);
+            btn_safestRoute.setVisibility(View.GONE);
+            btn_crimeNeighbourhood.setVisibility(View.GONE);
+            btn_trackCrime.setVisibility(View.GONE);
+            btn_registerComplain.setVisibility(View.VISIBLE);
+            layer1.setVisibility(View.GONE);
+            layer2.setVisibility(View.GONE);
+        } else {
+            btn_registerComplain.setVisibility(View.GONE);
+            layer3.setVisibility(View.GONE);
+        }
 
-
-        btn_reportFiling=(ImageView) findViewById(R.id.btn_reportFiling);
-        btn_safestRoute=(ImageView) findViewById(R.id.btn_safestRoute);
-        btn_crimeNeighbourhood=(ImageView) findViewById(R.id.btn_crimeNeighbourhood);
-        btn_trackCrime=(ImageView) findViewById(R.id.btn_trackCrime);
 
         btn_crimeNeighbourhood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(DashboardActivity.this,NeighbourhoodCrime.class);
+                Intent i = new Intent(DashboardActivity.this, NeighbourhoodCrime.class);
                 startActivity(i);
             }
         });
-        btn_reportFiling.setOnClickListener(new View.OnClickListener(){
+        btn_reportFiling.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                Intent i=new Intent(DashboardActivity.this,ReportFileActivity.class);
+            public void onClick(View v) {
+                Intent i = new Intent(DashboardActivity.this, ReportFileActivity.class);
                 startActivity(i);
             }
         });
-        btn_safestRoute.setOnClickListener(new View.OnClickListener(){
+        btn_safestRoute.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                Intent i=new Intent(DashboardActivity.this, SafestRouteActivity.class);
+            public void onClick(View v) {
+                Intent i = new Intent(DashboardActivity.this, SafestRouteActivity.class);
                 startActivity(i);
             }
         });
@@ -84,17 +97,23 @@ public class DashboardActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-                Intent i=new Intent(DashboardActivity.this,TrackCrimeActivity.class);
+                Intent i = new Intent(DashboardActivity.this, TrackCrimeActivity.class);
                 startActivity(i);
             }
         });
 
+        btn_registerComplain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DashboardActivity.this, ComplaintActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -144,8 +163,8 @@ public class DashboardActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

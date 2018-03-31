@@ -16,6 +16,7 @@
     <uses-feature android:name="android.hardware.location.gps" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -33,9 +34,8 @@
 
         <activity
             android:name=".login_module.LoginActivity"
-            android:noHistory="true">
-
-        </activity>
+            android:noHistory="true"
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
             android:name=".login_module.SignupActivity"
@@ -65,9 +65,12 @@
             android:name=".safest_route.SafestRouteActivity"
             android:label="@string/title_activity_safest_route" />
 
-        <activity android:name=".ComplaintActivity"></activity>
-        <activity android:name=".TrackCrimeActivity"></activity>
-        <activity android:name=".images.AttachImage"></activity>
+        <activity
+            android:name=".ComplaintActivity"
+            android:configChanges="locale"
+            android:label="@string/title_activity_complain_register" />
+        <activity android:name=".TrackCrimeActivity" />
+        <activity android:name=".images.AttachImage" />
 
         <receiver android:name=".upload.ConnectionChangedReceiver">
             <intent-filter>

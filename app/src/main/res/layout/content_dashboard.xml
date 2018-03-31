@@ -50,8 +50,8 @@
             android:id="@+id/btn_safestRoute"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-
+            android:layout_weight="1"
+            android:layout_margin="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -72,7 +72,6 @@
                     android:background="@color/colorPrimary"
                     android:gravity="center"
                     android:text="@string/title.safest_route"
-
                     android:textColor="#ffffff"
                     android:textSize="15dp" />
             </LinearLayout>

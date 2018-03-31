@@ -37,11 +37,11 @@
 
         <activity
             android:name=".login_module.SignupActivity"
-            android:noHistory="true" ></activity>
+            android:noHistory="true" />
         <activity
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard"
-            android:theme="@style/AppTheme.NoActionBar" ></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -57,15 +57,15 @@
         <activity
             android:name=".NeighbourhoodCrime"
             android:label="@string/title_activity_neighbourhood_crime" />
-        <activity android:name=".ReportFileActivity" ></activity>
+        <activity android:name=".ReportFileActivity" />
 
         <activity
             android:name=".safest_route.SafestRouteActivity"
-            android:label="@string/title_activity_safest_route" ></activity>
+            android:label="@string/title_activity_safest_route" />
 
-        <activity android:name=".ComplaintActivity"></activity>
-        <activity android:name=".TrackCrimeActivity"></activity>
-        <activity android:name=".images.AttachImage"></activity>
+        <activity android:name=".ComplaintActivity"/>
+        <activity android:name=".TrackCrimeActivity"/>
+        <activity android:name=".images.AttachImage"/>
 
         <receiver android:name=".upload.ConnectionChangedReceiver">
             <intent-filter>

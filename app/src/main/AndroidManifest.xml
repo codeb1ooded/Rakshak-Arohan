@@ -19,14 +19,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".MyApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login_module.PoliceLoginActivity"></activity>
-
-        <activity
-            android:name=".login_module.LoginActivity"
-            android:noHistory="true">
+        <activity android:name=".login_module.PoliceLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -34,12 +31,17 @@
         </activity>
 
         <activity
+            android:name=".login_module.LoginActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:noHistory="true"/>
+
+        <activity
             android:name=".login_module.SignupActivity"
-            android:noHistory="true" />
+            android:noHistory="true" ></activity>
         <activity
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" ></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -55,11 +57,11 @@
         <activity
             android:name=".NeighbourhoodCrime"
             android:label="@string/title_activity_neighbourhood_crime" />
-        <activity android:name=".ReportFileActivity" />
+        <activity android:name=".ReportFileActivity" ></activity>
 
         <activity
             android:name=".safest_route.SafestRouteActivity"
-            android:label="@string/title_activity_safest_route" />
+            android:label="@string/title_activity_safest_route" ></activity>
 
         <activity android:name=".ComplaintActivity"></activity>
         <activity android:name=".TrackCrimeActivity"></activity>

@@ -22,13 +22,31 @@ public class PreferenceManagerUtils {
         mEditor = mPref.edit();
     }
 
-    public void storeImagePath(String path){
+    public void storeImagePath(String path) {
         mEditor.putString("path", path);
         mEditor.apply();
     }
 
     public String getImagePath() {
-        return mPref.getString("path",null);
+        return mPref.getString("path", null);
+    }
+
+    public String retrieveVariable(String key, String defaultValue) {
+        return mPref.getString(key, defaultValue);
+    }
+
+    public boolean retrieveVariable(String key, boolean defaultValue) {
+        return mPref.getBoolean(key, defaultValue);
+    }
+
+    public void storeVariable(String key, String value) {
+        mEditor.putString(key, value);
+        mEditor.apply();
+    }
+
+    public void storeVariable(String key, boolean value) {
+        mEditor.putBoolean(key, value);
+        mEditor.apply();
     }
 
 }

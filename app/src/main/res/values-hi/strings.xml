@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">रक्षक आरोहण</string>
+
+    <string name="hint_location">स्थान</string>
+    <string name="hint_crime_type">अपराध प्रकार</string>
+    <string name="hint_crime_description">अपराध विवरण</string>
+    <string name="hint_crime_date">अपराध तिथि</string>
+    <string name="hint_crime_time">अपराध समय</string>
+    <string name="button_submit">जमा करें</string>
+
+    <!--modules-->
+    <string name="title.report_filling">रिपोर्ट करें</string>
+    <string name="title.track_crime">TRACK CRIME</string>
+    <string name="title.neighbourhood_crime">नजदीकी अपराध</string>
+    <string name="title.safest_route">सुरक्षित मार्ग</string>
+
+</resources>

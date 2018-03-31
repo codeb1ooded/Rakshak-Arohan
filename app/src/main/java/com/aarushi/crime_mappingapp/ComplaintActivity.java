@@ -85,12 +85,12 @@ public class ComplaintActivity extends BaseActivity implements LocationUtils.Loc
                         isVerified.getText().toString());
                 if(isInserted == true) {
                     cleanFields();
-                    Toast.makeText(ComplaintActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ComplaintActivity.this, getString(R.string.info_data_inserted), Toast.LENGTH_LONG).show();
                     Intent serviceIntent = new Intent(ComplaintActivity.this, AutoUploadService.class);
                     startService(serviceIntent);
                 }
                 else
-                    Toast.makeText(ComplaintActivity.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ComplaintActivity.this, getString(R.string.info_data_not_inserted), Toast.LENGTH_LONG).show();
             }
         });
 //        btn_viewAll.setOnClickListener(

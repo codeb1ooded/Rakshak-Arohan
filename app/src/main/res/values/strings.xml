@@ -42,4 +42,7 @@
 
     <string name="info.valid_details">Please provide all details</string>
 
+    <string name="info.data_inserted">Data Inserted Successfully</string>
+    <string name="info.data_not_inserted">Data Not Inserted. Please try again!</string>
+
 </resources>

@@ -31,4 +31,18 @@ public class PreferenceManagerUtils {
         return mPref.getString("path",null);
     }
 
+    public void login(String username){
+        mEditor.putString("username", username);
+        mEditor.putBoolean("logged_in", true);
+        mEditor.apply();
+    }
+
+    public String getUsername(){
+        return mPref.getString("username",null);
+    }
+
+    public boolean isLogin(){
+        return mPref.getBoolean("logged_in", false);
+    }
+
 }

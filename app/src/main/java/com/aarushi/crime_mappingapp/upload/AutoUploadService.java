@@ -6,6 +6,8 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -16,9 +18,14 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.aarushi.crime_mappingapp.API.ApiClient;
+import com.aarushi.crime_mappingapp.ComplaintActivity;
 import com.aarushi.crime_mappingapp.Constants;
+import com.aarushi.crime_mappingapp.DB.DatabaseHelper;
 import com.aarushi.crime_mappingapp.DashboardActivity;
 import com.aarushi.crime_mappingapp.Models.EmptyClass;
+import com.aarushi.crime_mappingapp.Models.path.Path;
+import com.aarushi.crime_mappingapp.Models.path.Route;
+import com.aarushi.crime_mappingapp.safest_route.SafestRouteActivity;
 import com.aarushi.crime_mappingapp.utility.PreferenceManagerUtils;
 import com.google.gson.JsonObject;
 
@@ -27,6 +34,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,6 +54,9 @@ import retrofit2.Response;
 public class AutoUploadService extends Service {
 
     static final String TAG = "AutoUploadServiceTag";
+    DatabaseHelper dbHelper;
+    SQLiteDatabase mDatabase;
+
     public AutoUploadService() {
     }
 
@@ -56,15 +67,17 @@ public class AutoUploadService extends Service {
     @Override
     public int onStartCommand(final Intent intent, final int flags, int startId) {
 
+        dbHelper = new DatabaseHelper(AutoUploadService.this);
         String title = "Market Acquire: Uploading..";
         String message = "Uploading Forms";
         startForeground(NOTIF_ID, getNotification(title, message).build());
 
-
-        // TODO: upload process
-        Log.i(TAG, (new PreferenceManagerUtils(AutoUploadService.this)).getImagePath());
+        getUnuploadedComplaints();
+        String imagePath = (new PreferenceManagerUtils(AutoUploadService.this)).getImagePath();
+//        Log.i(TAG, imagePath);
         Log.i(TAG, "Upload start");
-        uploadFile((new PreferenceManagerUtils(AutoUploadService.this)).getImagePath());
+      //  if(imagePath != null)
+        //    uploadFile((new PreferenceManagerUtils(AutoUploadService.this)).getImagePath());
 
         return START_NOT_STICKY;
     }
@@ -157,6 +170,51 @@ public class AutoUploadService extends Service {
         byte[] decodedString = Base64.decode(stringPicture, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         return decodedByte;
+    }
+
+    private void uploadNextComplaint(){
+
+    }
+
+
+
+    public void getUnuploadedComplaints(){
+        String selectQuery = "SELECT  * FROM " + DatabaseHelper.COMPLAINT_TABLE + " WHERE " + DatabaseHelper.COL_IS_UPLOADED + "=\'false\'";
+        mDatabase = dbHelper.getWritableDatabase();
+        Cursor cursor = mDatabase.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            Call<ResponseBody> reportComplaint = ApiClient.getInterface().reportComplaint(
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_USERNAME)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TYPE)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_LATITUDE)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_LONGITUDE)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_DESCRIPTION)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_CRIME_DATE)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_CRIME_TIME)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_COMPLAINT_TIME)),
+                    "2018-03-31",   //TODO: currently hardcoded
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_LOCATION)),
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_IS_VERIFIED)));
+            final int complaint_id = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COL_USERNAME));
+            reportComplaint.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()) {
+                        dbHelper.updateComplaintToUploaded(complaint_id);
+                    }
+                    else{
+                        Toast.makeText(AutoUploadService.this, "Try Again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Toast.makeText(AutoUploadService.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        cursor.close();
     }
 
 }

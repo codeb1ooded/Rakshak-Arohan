@@ -33,7 +33,7 @@
         android:alpha="0.3"
         android:background="@color/cardview_shadow_start_color"
         android:ems="10"
-        android:hint="Email Address"
+        android:hint="Username"
         android:inputType="textEmailAddress"
         android:padding="5dp"
         android:textColor="#212121"
